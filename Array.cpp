@@ -6,7 +6,7 @@ void input(int *arr,int& n)
     //input values
     for(i=0;i<n;i++)
     {
-        cout<<"Enter "<<i+1<<" element in array"<<endl;
+        cout<<endl<<"Enter "<<i+1<<" element in array"<<endl;
         cin>>arr[i];
     }
 }
@@ -16,7 +16,7 @@ void print(int *arr,int& n)
     int i;
     for(i=0;i<n;i++)
     {
-        cout<<"ARRAY ELEMENT NUMBER "<<i+1<<" is "<<arr[i];
+        cout<<endl<<"ARRAY ELEMENT NUMBER "<<i+1<<" is "<<arr[i]<<endl;
     }
 }
 void insert(int *arr,int& n,int& pos,int& ele)
@@ -35,9 +35,11 @@ void insert(int *arr,int& n,int& pos,int& ele)
 }
 void deleteEle(int *arr,int &n,int &pos)
 {
-    if(j==n-1)
-        n--;
     int j=pos-1;
+    if(j==n-1){
+        n--;
+        return;
+    }
     int last=n-2;
     while(j<=last)
     {
@@ -54,7 +56,7 @@ bool LinearSearch(int *arr,int& n,int& key,int& indx)
     {
         if(arr[i]==key)
         {
-            falg=true;
+            flag=true;
             indx=i;
             break;
         }
@@ -88,6 +90,7 @@ int main()
     int n;
     cout<<"Enter array Size in integer"<<endl;
     //Creating Array
+    cin>>n;
     int *arr=new int[n];
     //inputElements
     input(arr,n);
@@ -102,6 +105,8 @@ int main()
     cin>>ele;
     if(pos>=1 && pos<=n)
         arr[pos-1]=ele;
+    cout<<endl<<"Updated array "<<endl;
+    print(arr,n);
     //Inserting values
     cout<<"Inserting Values"<<endl;
     cout<<"Enter position with first element starting from 1"<<endl;
@@ -109,9 +114,13 @@ int main()
     cout<<"Enter element to be inserted"<<endl;
     cin>>ele;
     insert(arr,n,pos,ele);
+    cout<<endl<<"Array updated"<<endl;
     print(arr,n);
     //Delete
+    cout<<"Enter element position starting from 1 to be deleted "<<endl;
+    cin>>pos;
     deleteEle(arr,n,pos);
+    cout<<endl<<"Updated array"<<endl;
     print(arr,n);
     //Searching values
     int key,indx=-1;
