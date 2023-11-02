@@ -30,11 +30,19 @@ int partition(int *arr,int& s,int& e)
     swap(arr[pindx],arr[j]);
     return j;
 }
+int random_partition(int arr[],int& s,int& e)
+{
+    srand(time(NULL));
+    int n=e-s+1;
+    int rand_pivot_indx= rand() % (n);
+    swap(arr[s+rand_pivot_indx],arr[s]);//important line ##
+    return partition(arr,s,e);
+}
 void quicksort(int* arr,int s,int e)
 {
     if(s>e)
         return;
-    int pi=partition(arr,s,e);
+    int pi=random_partition(arr,s,e);
     quicksort(arr,s,pi-1);
     quicksort(arr,pi+1,e);
 }
