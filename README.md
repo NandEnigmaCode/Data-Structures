@@ -5,9 +5,6 @@
 <br>
 <h1>Updating</h1>
 <br>
-<p1>Note the difference between Update and insert</p1>
-<br>
-<br>
 <h1>Inserting</h1>
 <br>
 <h1>Deleting</h1>
